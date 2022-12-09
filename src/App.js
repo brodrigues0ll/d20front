@@ -1,14 +1,17 @@
 import { Routes, Route } from 'react-router-dom';
+import './app.css';
 
-import Login from './pages/Login';
-import SignIn from './pages/SignIn';
+
+import Home from './pages/Home';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/signin" element={<SignIn />} />
-    </Routes>
+    <div className='imgBG'>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+
+    </div>
 
   );
 }

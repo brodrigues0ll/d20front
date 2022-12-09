@@ -42,13 +42,13 @@ const Content = styled.header`
   flex-wrap: wrap;
   
   a {
-  font-size: 1.5em;
+  font-size: 1em;
   display: flex;
   align-items: center;
   }
 
   img {
-    height: 8rem;
+    height: 5rem;
     margin-bottom: 1rem;
     cursor: pointer;    
   }
@@ -63,7 +63,7 @@ const Content = styled.header`
     justify-content: center;
     box-shadow: 1px 1px 5px 1px #191919;
     background-color: rgb(48, 41, 98);
-    width: 8rem;
+    width: 5.5rem;
     height: 3rem;
     margin-left: 1rem;
     font-weight: bold;

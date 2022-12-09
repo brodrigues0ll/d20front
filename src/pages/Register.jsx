@@ -3,31 +3,35 @@ import styled from 'styled-components';
 
 import Cabecalho from '../components/Cabecalho';
 
-const Login = () => {
+const Register = () => {
   return (
     <>
       <Cabecalho />
 
       <Content>
         <form>
-          <h1>Login</h1>
+          <h1>Register</h1>
 
           <section>
-            <input type="text" placeholder='Username' />
+            <input type="text" required placeholder='Nome*' />
+            <input type="text" required placeholder='Sobrenome*' />
           </section>
 
           <section>
-            <input type="password" placeholder='Senha' />
+            <input type="text" required placeholder='Username*' />
+            <input type="email" required placeholder='Email*' />
           </section>
 
-          <button type='submit'>Entrar</button>
+          <input type="password" required placeholder='Senha*' />
+
+          <button type='submit'>Registrar</button>
         </form>
       </Content>
     </>
   );
 };
 
-export default Login;
+export default Register;
 
 const Content = styled.div`
 
@@ -52,13 +56,9 @@ const Content = styled.div`
   align-items: center;
   height: 70vh;
   font-weight: bold;
-  
+
   h1 {
     text-shadow: 1px 1px 5px #838383;
-
-    @media screen and (max-width: 370px) {
-      font-size: 2.5rem;
-    }
   }
   
   form {
@@ -69,21 +69,9 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: center;    
     height: 100%;
     font-size: 1.7rem;
-
-    @media screen and (max-width: 450px) {
-      width: 85vw;
-      justify-content: space-evenly;
-
-    }
-
-    @media screen and (max-width: 350px) {
-      margin-top: -5rem;
-      width: 95vw;
-      height: 50vh;
-    }
 
   
   }
@@ -100,27 +88,13 @@ const Content = styled.div`
     font-weight: bold;
     font-size: 1.5rem;
     box-shadow: 2px 1px 10px 2.5px #191919;
-
-    @media screen and (max-width: 450px) {
-      width: 58%;
-    }
-
-    @media screen and (max-width: 350px) {
-      width: 50%;
-      height: 25%;
-
-    }
-  }
-
-  section {
-    display: flex;
-    flex-direction: column;
   }
 
   input {
-    color: #000000;
+    color: #ffffff;
     font-family: 'Roboto', sans-serif;
     width: 15vw;
+    font-size: 1rem;
     font-size: 1.5rem;
     height: 5vh;
     padding: 8px;
@@ -130,31 +104,23 @@ const Content = styled.div`
     text-shadow: 1px 2px 10px #686868;
     border-radius: 10px;
     margin: 0 1.5rem;
-
-    @media screen and (max-width: 450px) {
-      width: 70vw;
-      background: rgba(201, 201, 201, 0.300);
-    }
     
   };
   
-
+  
   input:focus {
     outline: none;
     /* background-color: rgba(201, 201, 201, 0.5); */
     border-radius: 10px;
+    caret-color: #00eeff;
 
   }
 
   input::placeholder {
     color: #6128bd;
     font-size: 1.5rem;
-    
-    @media screen and (max-width: 350px) {
-      text-shadow: none;
-      font-size: 1rem;
-      color: #000000;
-    }
+    text-shadow: 1px 1px 5px #686868;
   }
+
 
 `;

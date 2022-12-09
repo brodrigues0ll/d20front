@@ -1,12 +1,33 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import logo from '../Images/DND-Logo.png';
+import logoPng from '../Images/DND-Logo.png';
 
+const Cabecalho = () => {
+
+
+  return (
+    <Content>
+      <NavLink to='/'>
+        <img src={logoPng} alt='DND' />
+      </NavLink>
+
+      <span>
+        <NavLink className='btns' to="/login">Login</NavLink>
+        <NavLink className="btns" to="/register">Cadastro</NavLink>
+      </span>
+
+    </Content >
+  );
+};
+
+
+export default Cabecalho;
 
 const Content = styled.header`
   display: flex;
   backdrop-filter: blur(3px);
+  position: relative;
 
   justify-content: space-between;
 
@@ -18,7 +39,6 @@ const Content = styled.header`
   align-items: center;
   padding: 1rem;
   box-shadow: 0 0 20px 0 #191919;
-  margin-bottom: 2rem;
   flex-wrap: wrap;
   
   a {
@@ -30,6 +50,7 @@ const Content = styled.header`
   img {
     height: 8rem;
     margin-bottom: 1rem;
+    cursor: pointer;    
   }
 
   span {
@@ -41,7 +62,7 @@ const Content = styled.header`
     align-items: center;
     justify-content: center;
     box-shadow: 1px 1px 5px 1px #191919;
-    background-color: #302962;
+    background-color: rgb(48, 41, 98);
     width: 8rem;
     height: 3rem;
     margin-left: 1rem;
@@ -52,22 +73,12 @@ const Content = styled.header`
       background-color: #3200a7;
       color: #ffff;
     }
-  }  
+  }
+  .btns.active {
+    background-color: #180052;    
+  }
+  .active {
+    filter: drop-shadow(5px 7px 12px #180052);
+  }
+
 `;
-
-const Cabecalho = () => {
-  return (
-    <Content>
-      <NavLink to='/home'>
-        <img src={logo} alt="D20" />
-      </NavLink>
-
-      <span>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/cadastro">Cadastro</NavLink>
-      </span>
-    </Content>
-  );
-};
-
-export default Cabecalho;

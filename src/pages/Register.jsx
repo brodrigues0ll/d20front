@@ -185,6 +185,10 @@ form button {
   }
 }
 
+form button:hover {
+  background-color: #3f187e;
+}
+
 section {
   display: flex;
   flex-direction: column;

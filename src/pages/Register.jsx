@@ -91,7 +91,7 @@ const Register = () => {
 
           <button
             type='button'
-            onClick={() => { register(); }}
+            onClick={register}
           >
             Registrar
           </button>

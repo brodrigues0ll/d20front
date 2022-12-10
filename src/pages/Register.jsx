@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Cabecalho from '../components/Cabecalho';
+import Confirmacao from '../components/Confirmacao';
 
 const Register = () => {
+  const [confirmation, setConfirmation] = useState(false);
   const [jsonReq, setJsonReq] = useState(
     {
       name: '',
@@ -25,6 +27,10 @@ const Register = () => {
 
     const data = await response.json();
     console.log(data);
+
+    if (typeof data === 'object') {
+      setConfirmation(true);
+    }
   }
 
 
@@ -96,6 +102,7 @@ const Register = () => {
             Registrar
           </button>
         </form>
+        {confirmation && <Confirmacao />}
       </Content>
     </>
   );

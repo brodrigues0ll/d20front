@@ -1,9 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Cabecalho from '../components/Cabecalho';
 
 const Register = () => {
+  const [jsonReq, setJsonReq] = useState(
+    {
+      name: '',
+      last_name: '',
+      username: '',
+      email: '',
+      password: '',
+    }
+  );
+
+  async function register() {
+    const response = await fetch('https://d20back-development.up.railway.app/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jsonReq),
+    });
+
+    const data = await response.json();
+    console.log(data);
+  }
+
+
   return (
     <>
       <Cabecalho />
@@ -13,18 +37,64 @@ const Register = () => {
           <h1>Register</h1>
 
           <section>
-            <input type="text" required placeholder='Nome*' />
-            <input type="text" required placeholder='Sobrenome*' />
+            <input
+              onChange={(e) => {
+                e.preventDefault();
+                setJsonReq({ ...jsonReq, name: e.target.value });
+              }}
+              type="text"
+              required
+              placeholder='Nome*'
+            />
+
+            <input
+              onChange={(e) => {
+                e.preventDefault();
+                setJsonReq({ ...jsonReq, last_name: e.target.value });
+              }}
+              type="text"
+              required
+              placeholder='Sobrenome*' />
           </section>
 
           <section>
-            <input type="text" required placeholder='Username*' />
-            <input type="email" required placeholder='Email*' />
+            <input
+              onChange={(e) => {
+                e.preventDefault();
+                setJsonReq({ ...jsonReq, username: e.target.value });
+              }}
+              type="text"
+              required
+              placeholder='Username*'
+            />
+
+            <input
+              onChange={(e) => {
+                e.preventDefault();
+                setJsonReq({ ...jsonReq, email: e.target.value });
+              }}
+              type="email"
+              required
+              placeholder='Email*'
+            />
           </section>
 
-          <input type="password" required placeholder='Senha*' />
+          <input
+            onChange={(e) => {
+              e.preventDefault();
+              setJsonReq({ ...jsonReq, password: e.target.value });
+            }}
+            type="password"
+            required
+            placeholder='Senha*'
+          />
 
-          <button type='submit'>Registrar</button>
+          <button
+            type='button'
+            onClick={() => { register(); }}
+          >
+            Registrar
+          </button>
         </form>
       </Content>
     </>
@@ -137,7 +207,7 @@ input {
   @media screen and (max-width: 450px) {
     width: 70vw;
     background: rgba(201, 201, 201, 0.300);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
   
 };
